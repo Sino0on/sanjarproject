@@ -1,0 +1,23 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+<h1 class="container">login</h1>
+
+    {% if form.errors %}
+    <p>Error</p>
+    {% endif %}
+    {% if next %}
+    <p>You cant success that page</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}" class="m-2">
+        {% csrf_token %}
+        <div class="container content-form pleft-25">
+        <p>Username: {{ form.username }}</p>
+        <p>Password: {{ form.password }}</p>
+
+        <button value="submit" class="btn btn-succes container p-2">Войти</button>
+            </div>
+    </form>
+
+{% endblock %}

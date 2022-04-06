@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">Новости</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      {% for i in posts %}
+      <div class="feature col">
+        <div class="feature-icon bg-primary bg-gradient">
+
+        </div>
+        <h2>{{ i.title }}</h2>
+        <p>{{ i.content|truncatechars:30 }}</p>
+        <a href="{% url 'detail' i.pk %}" class="btn btn-succes">
+          Подробнее
+        </a>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+       {% endblock %}

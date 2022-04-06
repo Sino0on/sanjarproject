@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="text-lg">Добавить пост</h1>
+    <form method="POST" action="">
+    {% csrf_token %}
+        <div class="container">
+            <div class="row justify-content center">
+                <div class="col-8">
+                    <div class="container justify-content-center">
+                        <p>{{ form.as_p }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button value="submit" class="btn btn-success">Готово</button>
+    </form>
+    </div>
+</div>
+
+{% endblock %}

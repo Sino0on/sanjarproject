@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container">
+  <div class="bg-light p-5 rounded">
+    <h1>{{ post.title }}</h1>
+    <p class="lead">{{ post.content }}</p>
+    <p class="lead">Пост от пользователя: {{ post.user }}</p>
+    {% if user == post.user %}
+    <a href="{% url 'delety' post.pk %}"><button class="btn btn-warning">Удалить</button></a>
+    {% endif %}
+  </div>
+</main>
+
+<main class="container">
+  {% for i in comments %}
+  <div class="bg-light p-5 rounded">
+
+    <p class="lead">{{ i.content }}</p>
+    <p class="lead">{{ i.author }}</p>
+
+  </div>
+  {% endfor %}
+</main>
+{% if user.is_authenticated %}
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button value="submit">Комментировать</button>
+</form>
+{% endif %}
+{% endblock %}
